@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+#include <limits>
 #include <stdexcept>
 #include <type_traits>
 
@@ -90,7 +91,7 @@ namespace detail {
         // In other cases is used symmetry relation
         //     B(x, a, b) = beta(a, b) - B(1 - x, b, a)
         // -----------------------------------------------------------
-        if (x > (a + 1) / (a + b + 2)) {
+        if (x - (a + 1) / (a + b + 2) > std::numeric_limits<T>::epsilon()) {
             return (beta_impl(a, b) - incbeta_impl(1 - x, b, a, TOL, MAX_ITER));
         }
 

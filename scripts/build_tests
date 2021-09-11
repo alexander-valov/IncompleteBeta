@@ -2,7 +2,7 @@
 
 # Set options
 ROOT_FOLDER=".."
-CMAKE_BUILD_TYPE=Debug
+CMAKE_BUILD_TYPE=Release
 CMAKE_CXX_COMPILER=clang++
 
 # Build tests

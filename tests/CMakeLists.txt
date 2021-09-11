@@ -7,6 +7,13 @@ add_executable(TestRunner ${SOURCES})
 target_include_directories(TestRunner PRIVATE thirdparty/doctest)
 target_link_libraries(TestRunner PRIVATE ${INC_BETA_TARGET_NAME})
 
+# Copy precomputed table for testing into build dir
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/incbeta_table.csv
+    ${CMAKE_CURRENT_BINARY_DIR}/incbeta_table.csv
+    COPYONLY
+)
+
 # CTest integration
 include(thirdparty/doctest/scripts/doctest.cmake)
 doctest_discover_tests(TestRunner)
