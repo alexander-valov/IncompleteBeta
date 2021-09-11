@@ -55,7 +55,7 @@ target_include_directories(
 #================================================================
 # Buld unit tests
 #================================================================
-# if (INC_BETA_BUILD_TESTS)
-#     enable_testing()
-#     add_subdirectory(test)
-# endif()
+if (INC_BETA_BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
