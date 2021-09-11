@@ -193,4 +193,26 @@ typename detail::promote_fp_3<Tx, Ta, Tb>::type incbeta(
     return detail::incbeta_impl<type>(x, a, b, TOL, MAX_ITER);
 }
 
+/********************************************************************
+ * @brief Regularized incomplete beta function:
+ *     I(x, a, b) = B(x, a, b) / B(a, b)
+ * @param[in, out] x Argument 0 <= x <= 1
+ * @param[in] a Argument a > 0
+ * @param[in] b Argument b > 0
+ * @param[in] TOL Continued fraction approximation tolerance
+ * @param[in] MAX_ITER Continued fraction approximation max iterations
+ * @return Approximation of I(x, a, b)
+ ******************************************************************** */
+template<class Tx, class Ta, class Tb>
+typename detail::promote_fp_3<Tx, Ta, Tb>::type incbeta_reg(
+    const Tx& x,
+    const Ta& a,
+    const Tb& b,
+    const typename detail::promote_fp_3<Tx, Ta, Tb>::type& TOL = 
+        typename detail::promote_fp_3<Tx, Ta, Tb>::type(1e-8),
+    unsigned MAX_ITER = 200
+) {
+    return incbeta(x, a, b, TOL, MAX_ITER) / beta(a, b);
+}
+
 } // end of JustMath namespace
