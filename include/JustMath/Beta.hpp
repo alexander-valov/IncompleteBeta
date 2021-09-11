@@ -1,4 +1,4 @@
-#include <iostream>
+#pragma once
 
 #include <cmath>
 #include <stdexcept>
@@ -193,26 +193,3 @@ typename detail::promote_fp_3<Tx, Ta, Tb>::type incbeta(
 }
 
 } // end of JustMath namespace
-
-
-int main() {
-    float x_float = 0.3;
-    float a_float = 10.0;
-    float b_float = 10.0;
-    double r = JustMath::incbeta(x_float, a_float, b_float);
-    std::cout << "r = " << r << "\n";
-    // std::cout << "beta('a', 'b') = " << std::beta('a', 'b') << "\n";
-    // int a_int = 2;
-    // int b_int = 2;
-    // std::cout << "beta(a_int, b_int) = " << std::beta(a_int, b_int) << "\n";
-    // std::cout << "gamma: beta(a_int, b_int) = " << std::exp(std::lgamma(a_int) + std::lgamma(b_int) - std::lgamma(a_int + b_int)) << "\n";
-    // std::cout << "beta(a_float, b_float) = " << std::beta(a_float, b_float) << "\n";
-    // std::cout << "gamma: beta(a_float, b_float) = " << std::exp(std::lgamma(a_float) + std::lgamma(b_float) - std::lgamma(a_float + b_float)) << "\n";
-
-    // std::cout << "incbeta(0, 10.0, 10.0) = " << JustMath::incbeta(0, 10.0, 10.0) << "\n";
-    // std::cout << "incbeta(1, 10.0, 10.0) = " << JustMath::incbeta(1, 10.0, 10.0) << "\n";
-    // std::cout << "beta(10.0, 10.0) = " << std::beta(10.0, 10.0) << "\n";
-    std::cout << "incbeta(0.3, 10, 10) = " << JustMath::incbeta(0.3, 10, 10) << "\n";
-
-    return 0;
-}
